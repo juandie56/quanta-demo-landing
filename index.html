@@ -30,10 +30,10 @@ body{
   display:flex;flex-direction:column;
   position:relative;overflow-x:hidden;
 }
-
+ 
 /* ── starfield canvas ── */
 canvas#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
-
+ 
 /* ── gradient bg ── */
 .bg-grad{
   position:fixed;inset:0;z-index:0;pointer-events:none;
@@ -41,7 +41,7 @@ canvas#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
              radial-gradient(ellipse 60% 50% at 20% 80%, rgba(100,5,70,0.15) 0%, transparent 60%),
              var(--bg);
 }
-
+ 
 /* ── NAV ── */
 nav{
   position:relative;z-index:10;
@@ -70,7 +70,7 @@ nav{
   box-shadow:0 0 18px rgba(232,23,125,0.3);
 }
 .nav-cta:hover{opacity:.88;box-shadow:0 0 28px rgba(232,23,125,0.45)}
-
+ 
 /* ── MAIN ── */
 main{
   position:relative;z-index:1;flex:1;
@@ -82,7 +82,7 @@ main{
   display:grid;grid-template-columns:1fr 1fr;
   gap:4rem;align-items:center;
 }
-
+ 
 /* ── LEFT COPY ── */
 .badge{
   display:inline-flex;align-items:center;gap:8px;
@@ -99,7 +99,7 @@ main{
   animation:blink 2s infinite;
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-
+ 
 h1{
   font-family:'Montserrat',sans-serif;
   font-size:clamp(2rem,3.8vw,2.85rem);
@@ -114,7 +114,7 @@ h1 .hl{
   font-size:.9375rem;color:var(--muted);line-height:1.75;
   max-width:380px;margin-bottom:2.5rem;
 }
-
+ 
 .features{display:flex;flex-direction:column;gap:12px}
 .feat{display:flex;align-items:center;gap:12px;font-size:.875rem;color:#9a8fa8}
 .feat-icon{
@@ -124,7 +124,7 @@ h1 .hl{
   display:grid;place-items:center;
 }
 .feat-icon svg{width:14px;height:14px;stroke:var(--pink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
+ 
 .trust{margin-top:2.5rem;padding-top:1.75rem;border-top:1px solid rgba(255,255,255,0.06)}
 .trust-label{font-size:11px;color:#3a2e42;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.875rem}
 .trust-badges{display:flex;gap:10px;flex-wrap:wrap}
@@ -134,7 +134,7 @@ h1 .hl{
   background:rgba(232,23,125,0.07);border:1px solid rgba(232,23,125,0.15);
   color:rgba(232,23,125,0.5);
 }
-
+ 
 /* ── CARD ── */
 .card{
   background:rgba(255,255,255,0.035);
@@ -153,16 +153,16 @@ h1 .hl{
   border-radius:20px;z-index:-1;
   box-shadow:0 0 60px rgba(232,23,125,0.1);
 }
-
+ 
 .card-title{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:.3rem}
 .card-sub{font-size:.8125rem;color:var(--muted);margin-bottom:1.75rem}
-
+ 
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fg{display:flex;flex-direction:column;gap:6px}
 .fg.full{grid-column:1/-1}
-
+ 
 label{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-
+ 
 input,select{
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.09);
@@ -183,10 +183,38 @@ select{
   background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;
 }
 select option{background:#140020;color:#fff}
-
+ 
+/* ── tel wrap ── */
+.tel-wrap{
+  display:flex;align-items:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:10px;overflow:hidden;
+  transition:border-color .2s,box-shadow .2s;
+}
+.tel-wrap:focus-within{
+  border-color:rgba(232,23,125,0.5);
+  box-shadow:0 0 0 3px rgba(232,23,125,0.1);
+}
+.tel-wrap.error{border-color:rgba(248,113,113,.5)}
+.tel-prefix{
+  padding:10px 10px 10px 13px;
+  font-size:.875rem;font-weight:600;
+  color:var(--muted);white-space:nowrap;
+  border-right:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  user-select:none;
+}
+.tel-wrap input{
+  border:none!important;box-shadow:none!important;
+  border-radius:0;background:transparent;
+  padding:10px 13px;flex:1;
+}
+.tel-wrap input:focus{border:none;box-shadow:none}
+ 
 input.error,select.error{border-color:rgba(248,113,113,.5)}
 .field-err{font-size:11px;color:#f87171;margin-top:2px;display:none}
-
+ 
 .cta-btn{
   margin-top:18px;width:100%;
   background:var(--pink);
@@ -203,11 +231,11 @@ input.error,select.error{border-color:rgba(248,113,113,.5)}
 .cta-btn:active{transform:translateY(0)}
 .cta-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
 .cta-btn svg{width:16px;height:16px;flex-shrink:0}
-
+ 
 .privacy{font-size:11px;color:#3a2e42;text-align:center;margin-top:11px}
 .privacy a{color:#5a3f58;text-decoration:none}
 .privacy a:hover{color:var(--muted)}
-
+ 
 .spinner{
   width:16px;height:16px;
   border:2px solid rgba(255,255,255,.25);
@@ -217,7 +245,7 @@ input.error,select.error{border-color:rgba(248,113,113,.5)}
   display:none;flex-shrink:0;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-
+ 
 /* success */
 .success-screen{
   display:none;flex-direction:column;align-items:center;
@@ -241,7 +269,7 @@ input.error,select.error{border-color:rgba(248,113,113,.5)}
   text-decoration:none;transition:background .2s;
 }
 .wa-btn:hover{background:rgba(52,211,153,0.18)}
-
+ 
 /* ── FOOTER ── */
 footer{
   position:relative;z-index:1;
@@ -251,7 +279,7 @@ footer{
 }
 footer a{color:#4a3455;text-decoration:none}
 footer a:hover{color:var(--muted)}
-
+ 
 /* ── RESPONSIVE ── */
 @media(max-width:720px){
   nav{padding:1rem 1.25rem}
@@ -263,10 +291,10 @@ footer a:hover{color:var(--muted)}
 </style>
 </head>
 <body>
-
+ 
 <canvas id="stars"></canvas>
 <div class="bg-grad"></div>
-
+ 
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="https://landing.quantapro.com.co">
@@ -279,17 +307,17 @@ footer a:hover{color:var(--muted)}
     <a class="nav-cta" href="https://landing.quantapro.com.co/#contacto">Contacto</a>
   </div>
 </nav>
-
+ 
 <!-- MAIN -->
 <main>
   <div class="wrapper">
-
+ 
     <!-- LEFT -->
     <div class="copy">
       <div class="badge"><div class="badge-dot"></div>Agente IA activo</div>
       <h1>Tu demo de Quanta,<br><span class="hl">en segundos.</span></h1>
       <p class="subtitle">Déjanos tus datos y nuestro agente te llama de inmediato para mostrarte cómo Quanta digitaliza tu operación manufacturera hacia la Industria 4.0.</p>
-
+ 
       <div class="features">
         <div class="feat">
           <div class="feat-icon">
@@ -316,7 +344,7 @@ footer a:hover{color:var(--muted)}
           Datos protegidos · Política de privacidad
         </div>
       </div>
-
+ 
       <div class="trust">
         <div class="trust-label">Industrias que atendemos</div>
         <div class="trust-badges">
@@ -328,15 +356,15 @@ footer a:hover{color:var(--muted)}
         </div>
       </div>
     </div>
-
+ 
     <!-- RIGHT CARD -->
     <div class="card">
-
+ 
       <!-- FORM -->
       <div id="form-view">
         <div class="card-title">Solicita tu demo ahora</div>
         <div class="card-sub">Completa el formulario — Te contactamos al instante.</div>
-
+ 
         <div class="form-grid">
           <div class="fg">
             <label for="nombre">Nombre</label>
@@ -345,8 +373,11 @@ footer a:hover{color:var(--muted)}
           </div>
           <div class="fg">
             <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" placeholder="+57 321 000 0000" autocomplete="tel"/>
-            <span class="field-err" id="err-telefono">Número inválido</span>
+            <div class="tel-wrap">
+              <span class="tel-prefix">🇨🇴 +57</span>
+              <input type="tel" id="telefono" placeholder="3210000000" autocomplete="tel" maxlength="10" inputmode="numeric"/>
+            </div>
+            <span class="field-err" id="err-telefono">Ingresa 10 dígitos (ej: 3210000000)</span>
           </div>
           <div class="fg full">
             <label for="email">Correo electrónico</label>
@@ -359,21 +390,94 @@ footer a:hover{color:var(--muted)}
             <span class="field-err" id="err-empresa">Campo obligatorio</span>
           </div>
           <div class="fg">
-            <label for="rol">Rol en la empresa</label>
+            <label for="rol">Cargo / Jerarquía</label>
             <select id="rol">
-              <option value="" disabled selected>Selecciona tu rol</option>
-              <option>CEO / Fundador</option>
-              <option>Director Comercial</option>
-              <option>Gerente de Producción</option>
-              <option>Gerente de Operaciones</option>
-              <option>Gerente de Ventas</option>
-              <option>CTO / Tecnología</option>
-              <option>Otro</option>
+              <option value="" disabled selected>Selecciona tu cargo</option>
+              <optgroup label="── C-Level / Fundadores">
+                <option value="CEO / Fundador">CEO / Fundador</option>
+                <option value="COO / Director de Operaciones">COO / Director de Operaciones</option>
+                <option value="CFO / Director Financiero">CFO / Director Financiero</option>
+                <option value="CTO / Director de Tecnología">CTO / Director de Tecnología</option>
+                <option value="CMO / Director de Marketing">CMO / Director de Marketing</option>
+              </optgroup>
+              <optgroup label="── Dirección">
+                <option value="Director Comercial">Director Comercial</option>
+                <option value="Director de Producción">Director de Producción</option>
+                <option value="Director Administrativo">Director Administrativo</option>
+                <option value="Director de Talento Humano">Director de Talento Humano</option>
+                <option value="Director de Logística">Director de Logística</option>
+              </optgroup>
+              <optgroup label="── Gerencia">
+                <option value="Gerente General">Gerente General</option>
+                <option value="Gerente de Operaciones">Gerente de Operaciones</option>
+                <option value="Gerente de Ventas">Gerente de Ventas</option>
+                <option value="Gerente de Producción">Gerente de Producción</option>
+                <option value="Gerente Administrativo">Gerente Administrativo</option>
+                <option value="Gerente de Proyectos">Gerente de Proyectos</option>
+              </optgroup>
+              <optgroup label="── Liderazgo / Jefatura">
+                <option value="Jefe de Área">Jefe de Área</option>
+                <option value="Jefe de Planta">Jefe de Planta</option>
+                <option value="Líder de Proyecto">Líder de Proyecto</option>
+                <option value="Líder de Proceso">Líder de Proceso</option>
+              </optgroup>
+              <optgroup label="── Coordinación / Supervisión">
+                <option value="Coordinador">Coordinador</option>
+                <option value="Supervisor de Producción">Supervisor de Producción</option>
+                <option value="Supervisor de Calidad">Supervisor de Calidad</option>
+              </optgroup>
+              <optgroup label="── Analista / Operativo">
+                <option value="Analista">Analista</option>
+                <option value="Técnico">Técnico</option>
+                <option value="Operario / Operador">Operario / Operador</option>
+                <option value="Otro">Otro</option>
+              </optgroup>
             </select>
-            <span class="field-err" id="err-rol">Selecciona tu rol</span>
+            <span class="field-err" id="err-rol">Selecciona tu cargo</span>
+          </div>
+          <div class="fg full">
+            <label for="area">Área / Departamento</label>
+            <select id="area">
+              <option value="" disabled selected>Selecciona tu área</option>
+              <optgroup label="── Estrategia y Alta Dirección">
+                <option value="Gerencia General">Gerencia General</option>
+                <option value="Presidencia / CEO">Presidencia / CEO</option>
+              </optgroup>
+              <optgroup label="── Operaciones y Producción">
+                <option value="Producción">Producción</option>
+                <option value="Operaciones">Operaciones</option>
+                <option value="Manufactura">Manufactura</option>
+                <option value="Calidad">Calidad</option>
+                <option value="Logística y Cadena de Suministro">Logística y Cadena de Suministro</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+              </optgroup>
+              <optgroup label="── Administración y Finanzas">
+                <option value="Administrativo">Administrativo</option>
+                <option value="Finanzas y Contabilidad">Finanzas y Contabilidad</option>
+                <option value="Compras y Abastecimiento">Compras y Abastecimiento</option>
+              </optgroup>
+              <optgroup label="── Personas">
+                <option value="Talento Humano">Talento Humano</option>
+                <option value="Nómina y Bienestar">Nómina y Bienestar</option>
+              </optgroup>
+              <optgroup label="── Comercial y Marketing">
+                <option value="Ventas y Comercial">Ventas y Comercial</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Servicio al Cliente">Servicio al Cliente</option>
+              </optgroup>
+              <optgroup label="── Tecnología">
+                <option value="Tecnología e Innovación">Tecnología e Innovación</option>
+                <option value="Sistemas y TI">Sistemas y TI</option>
+              </optgroup>
+              <optgroup label="── Otro">
+                <option value="Jurídico y Cumplimiento">Jurídico y Cumplimiento</option>
+                <option value="Otro">Otro</option>
+              </optgroup>
+            </select>
+            <span class="field-err" id="err-area">Selecciona tu área</span>
           </div>
         </div>
-
+ 
         <button class="cta-btn" id="submit-btn" onclick="handleSubmit()">
           <div class="spinner" id="spinner"></div>
           <span id="btn-label">Quiero mi demo de Quanta</span>
@@ -385,7 +489,7 @@ footer a:hover{color:var(--muted)}
           <a href="https://landing.quantapro.com.co/tratamiento-datos.html" target="_blank">Política de datos</a>
         </p>
       </div>
-
+ 
       <!-- SUCCESS -->
       <div class="success-screen" id="success-view">
         <div class="success-icon">
@@ -398,23 +502,28 @@ footer a:hover{color:var(--muted)}
           Escríbenos por WhatsApp
         </a>
       </div>
-
+ 
     </div>
   </div>
 </main>
-
+ 
 <!-- FOOTER -->
 <footer>
   <span>© 2026 Quanta by <a href="https://landing.quantapro.com.co" target="_blank">QPalliance</a>. Todos los derechos reservados.</span>
   &nbsp;·&nbsp;
   <a href="https://landing.quantapro.com.co/tratamiento-datos.html" target="_blank">Tratamiento de datos</a>
 </footer>
-
+ 
 <script>
 // ── CONFIG: pega aquí tu webhook de Dapta ───────────────────────────
 const WEBHOOK_URL = "https://api.dapta.ai/api/f76184a2447733f3/proyecto-1?x-api-key=63zYz-f76184a2-beab-488e-a18a-197f447733f3-a";
 // ────────────────────────────────────────────────────────────────────
-
+ 
+/* solo números en teléfono */
+document.getElementById('telefono').addEventListener('input',function(){
+  this.value=this.value.replace(/\D/g,'').slice(0,10);
+});
+ 
 /* ── STARFIELD ── */
 (function(){
   const c = document.getElementById('stars');
@@ -445,20 +554,29 @@ const WEBHOOK_URL = "https://api.dapta.ai/api/f76184a2447733f3/proyecto-1?x-api-
   window.addEventListener('resize',()=>{resize();init()});
   resize();init();draw();
 })();
-
+ 
 /* ── FORM ── */
 function v(id){return document.getElementById(id).value.trim()}
 function setErr(id,show){
-  document.getElementById(id).classList[show?'add':'remove']('error');
-  document.getElementById('err-'+id).style.display=show?'block':'none';
+  const el=document.getElementById(id);
+  const errEl=document.getElementById('err-'+id);
+  if(id==='telefono'){
+    // error class goes on the wrap, not the input
+    el.closest('.tel-wrap').classList[show?'add':'remove']('error');
+  } else {
+    el.classList[show?'add':'remove']('error');
+  }
+  if(errEl) errEl.style.display=show?'block':'none';
 }
 function validate(){
   let ok=true;
   if(!v('nombre')){setErr('nombre',true);ok=false}else setErr('nombre',false);
-  if(!/^\+?[\d\s\-()\u00B7]{7,}$/.test(v('telefono'))){setErr('telefono',true);ok=false}else setErr('telefono',false);
+  const tel=v('telefono').replace(/\D/g,'');
+  if(tel.length!==10){setErr('telefono',true);ok=false}else setErr('telefono',false);
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))){setErr('email',true);ok=false}else setErr('email',false);
   if(!v('empresa')){setErr('empresa',true);ok=false}else setErr('empresa',false);
   if(!v('rol')){setErr('rol',true);ok=false}else setErr('rol',false);
+  if(!v('area')){setErr('area',true);ok=false}else setErr('area',false);
   return ok;
 }
 async function handleSubmit(){
@@ -470,8 +588,10 @@ async function handleSubmit(){
   btn.disabled=true;spinner.style.display='block';
   label.textContent='Enviando...';arrow.style.display='none';
   const payload={
-    nombre:v('nombre'),telefono:v('telefono'),
-    email:v('email'),empresa:v('empresa'),rol:v('rol'),
+    nombre:v('nombre'),
+    telefono:'+57'+v('telefono').replace(/\D/g,''),
+    email:v('email'),empresa:v('empresa'),
+    cargo:v('rol'),area:v('area'),
     fuente:'landing-quanta-agente',
     timestamp:new Date().toISOString()
   };
@@ -485,3 +605,7 @@ async function handleSubmit(){
 </script>
 </body>
 </html>
+ 
+
+
+
